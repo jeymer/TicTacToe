@@ -1,4 +1,4 @@
-# tic-tac-toe
+# Tic Tac Toe
 Jeffrey Eymer, 2016
 
 This is a simple Java program of the game Tic Tac Toe made using Java Swing. It can currently be played only with two people, but in the future I plan to add support in for playing alone.
