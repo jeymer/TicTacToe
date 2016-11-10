@@ -7,4 +7,4 @@ This was a simple Swing project aimed towards bettering my understanding of usin
 
 I originally had the code all in one file (MainWindow.java). I have since then split the code up into seperate classes for organization and neatness purposes.
 
-Future plans fothe program are to add one-player (vs. CPU) support as well as potentially some customization options. 
+Future plans for the program are to add one-player (vs. CPU) support as well as potentially some customization options. 
