@@ -25,7 +25,7 @@ public class MainWindow {
 		
 		// Set attributes of the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(600, 600);
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
 		panel.setBackground(Color.BLACK);
