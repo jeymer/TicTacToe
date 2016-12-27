@@ -4,13 +4,14 @@ import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 public class MainWindow {
 	
+	
 	// Strings representing the letters that go into the squares
-	public static String X = "X";
-	public static String O = "O";
+	Customization options = new Customization();
 	
 	// Boolean representing who's turn it is
 	public static boolean xTurn = true;
@@ -21,11 +22,16 @@ public class MainWindow {
 	// Grid holding contents of board
 	public static Grid grid = new Grid();
 	
+	// Create a MenuBarBuilder and use it to build the menu bar
+	public static MenuBarBuilder menuBarBuilder = new MenuBarBuilder();
+	public static JMenuBar menuBar = menuBarBuilder.createMenuBar();
+	
 	public static void main(String args[]) {
 		
 		// Set attributes of the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 600);
+		frame.setJMenuBar(menuBar);
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
 		panel.setBackground(Color.BLACK);
