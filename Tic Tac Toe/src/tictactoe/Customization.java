@@ -11,6 +11,7 @@ public class Customization {
 	public String X;
 	public String O;
 	
+	// Set to initial values
 	public Customization() {
 		this.lineColor = Color.BLACK;
 		this.squareColor = Color.WHITE;
