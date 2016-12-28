@@ -13,7 +13,7 @@ public class MainWindow {
 	public Customization options = new Customization();
 	
 	// Boolean representing who's turn it is
-	public static boolean xTurn = true;
+	public boolean xTurn = true;
 	
 	// Tic Tac Toe Window
 	public static JFrame frame = new JFrame("Tic Tac Toe");
