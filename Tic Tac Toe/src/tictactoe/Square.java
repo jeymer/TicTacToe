@@ -46,7 +46,7 @@ public class Square {
 				JOptionPane.showMessageDialog(MainWindow.frame, "Please select an unused square.");
 			}
 			else {
-				if(MainWindow.xTurn) {
+				if(mainWindow.xTurn) {
 					this.value = 1;
 					this.setText();
 				}
@@ -55,7 +55,7 @@ public class Square {
 					this.setText();
 				}
 				mainWindow.endScreen.displayEndScreen();
-				MainWindow.xTurn = !(MainWindow.xTurn);
+				mainWindow.xTurn = !(mainWindow.xTurn);
 			}
 		});
 	}
