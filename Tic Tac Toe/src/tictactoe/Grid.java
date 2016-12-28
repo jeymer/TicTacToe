@@ -6,7 +6,7 @@ package tictactoe;
 
 public class Grid {
 	
-	public MainWindow mainWindow;
+	public MainWindow mainWindow; // Used to pass along to the square constructor
 	public Square[][] grid = new Square[3][3]; // 3x3 grid of Square objects
 	
 	public Grid(MainWindow mainWindow) {
