@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 public class EndScreen {
 	
+	// Used to access customization options, particularly the X/O strings
 	public MainWindow mainWindow;
 	
 	public EndScreen(MainWindow mainWindow) {
