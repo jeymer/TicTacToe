@@ -11,37 +11,24 @@ import javax.swing.JOptionPane;
 
 public class Square {
 	
-	private int value = 0; // The value within the square starts at 0 (empty square)
-	private JButton button;
+	public int value = 0; // The value within the square starts at 0 (empty square)
+	public JButton button;
+	public MainWindow mainWindow;
 	
 	// value will always be preset to 0, so no constructor code needed to set that
-	public Square(int xCoord, int yCoord) {
+	public Square(MainWindow mainWindow, int xCoord, int yCoord) {
+		this.mainWindow = mainWindow;
 		this.button = new JButton("");
 		button.setFont(new Font("Arial", Font.PLAIN, 72));
 		this.setActionListener();
 	}
 	
 	
-	// Get and set the value of the square
-	
-	public int getValue() {
-		return this.value;
-	}
-	
-	public void setValue(int value) {
-		this.value = value;
-	}
-	
-	// Get the button
-	public JButton getButton() {
-		return this.button;
-	}
-	
 	// Set the text in the button
 	public void setText() {
 		if(this.value == 0) this.button.setText("");
-		else if(this.value == 1) this.button.setText(MainWindow.X);
-		else if(this.value == 2) this.button.setText(MainWindow.O);
+		else if(this.value == 1) this.button.setText(mainWindow.options.X);
+		else if(this.value == 2) this.button.setText(mainWindow.options.O);
 		// These are set to the string variable in the MainWindow class to allow 
 		// for easy switching of the letters (in case of future customization options)
 	}
@@ -67,7 +54,7 @@ public class Square {
 					this.value = 2;
 					this.setText();
 				}
-				EndScreen.displayEndScreen();
+				mainWindow.endScreen.displayEndScreen();
 				MainWindow.xTurn = !(MainWindow.xTurn);
 			}
 		});

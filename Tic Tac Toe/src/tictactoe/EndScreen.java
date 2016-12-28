@@ -8,14 +8,20 @@ import javax.swing.JOptionPane;
 
 public class EndScreen {
 	
-	public static void displayEndScreen() {
+	public MainWindow mainWindow;
+	
+	public EndScreen(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
+	}
+	
+	public void displayEndScreen() {
 		String winner = ""; 
-		switch(MainWindow.checkWinner()) {
+		switch(mainWindow.checkWinner()) {
 		case 1:
-			winner = "Player 1 (" + MainWindow.X + ") wins!\nPlay again?";
+			winner = "Player 1 (" + mainWindow.options.X + ") wins!\nPlay again?";
 			break;
 		case 2:
-			winner = "Player 2 (" + MainWindow.O + ") wins!\nPlay again?";
+			winner = "Player 2 (" + mainWindow.options.O + ") wins!\nPlay again?";
 			break;
 		case 3:
 			winner = "Draw!\nPlay again?";
@@ -26,8 +32,8 @@ public class EndScreen {
 		if(!winner.equals("")) {
 			int choice = JOptionPane.showConfirmDialog(MainWindow.frame, winner, "Congratulations!", JOptionPane.YES_NO_OPTION);
 			if(choice == JOptionPane.YES_OPTION) {
-				MainWindow.grid.clear();
-				MainWindow.xTurn = false;
+				mainWindow.grid.clear();
+				mainWindow.xTurn = false;
 			}
 			else {
 				System.exit(0);
