@@ -17,7 +17,7 @@ public class EndScreen {
 	
 	public void displayEndScreen() {
 		String winner = ""; 
-		switch(mainWindow.checkWinner()) {
+		switch(mainWindow.grid.checkWinner()) {
 		case 1:
 			winner = "Player 1 (" + mainWindow.options.X + ") wins!\nPlay again?";
 			break;
