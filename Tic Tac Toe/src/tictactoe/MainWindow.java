@@ -28,10 +28,6 @@ public class MainWindow {
 	// Object used to display end screen
 	public EndScreen endScreen = new EndScreen(this);
 	
-	public MainWindow() { 
-		createAndShowGUI();
-	}
-	
 	public void createAndShowGUI() {
 		// Set attributes of the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,58 +50,15 @@ public class MainWindow {
 		frame.setVisible(true);
 	}
 	
+	public MainWindow() { 
+		createAndShowGUI();
+	}
+	
 	public static void main(String args[]) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new MainWindow(); 
 			}
 		});
-	}
-	
-	public int checkWinner() {
-		
-		// Check rows for winner
-		for(int r = 0; r < 3; r++) {
-			if(grid.getSquare(r, 0).value != 0 
-					&& grid.getSquare(r, 0).value == grid.getSquare(r, 1).value 
-					&& grid.getSquare(r, 1).value == grid.getSquare(r, 2).value ) {
-				if(xTurn) return 1;
-				return 2;
-			}
-		}
-		
-		// Check columns for winner
-		for(int c = 0; c < 3; c++) {
-			if(grid.getSquare(0, c).value != 0 
-					&& grid.getSquare(0, c).value == grid.getSquare(1, c).value 
-					&& grid.getSquare(1, c).value == grid.getSquare(2, c).value ) {
-				if(xTurn) return 1;
-				return 2;
-			}
-		}
-		
-		// Check diagonals
-		if(	(grid.getSquare(0, 0).value != 0 
-				&&grid.getSquare(0, 0).value == grid.getSquare(1, 1).value 
-				&& grid.getSquare(1, 1).value == grid.getSquare(2, 2).value)
-				|| (grid.getSquare(0, 2).value != 0
-				&& grid.getSquare(0, 2).value == grid.getSquare(1, 1).value 
-				&& grid.getSquare(1, 1).value == grid.getSquare(2, 0).value)){
-					if(xTurn) return 1;
-					return 2;
-		}
-		
-		// Check tie
-		// Start with value of 3, if it finds an empty square make it 0 otherwise return 3
-		int tie = 3;
-		for(int r = 0; r < 3; r++) {
-			for(int c = 0; c < 3; c++) {
-				if(grid.getSquare(r, c).value == 0) {
-					tie = 0;
-				}
-			}
-		}
-		
-		return tie;
 	}
 }
