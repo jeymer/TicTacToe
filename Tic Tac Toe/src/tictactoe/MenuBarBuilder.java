@@ -11,7 +11,9 @@ public class MenuBarBuilder {
 
 	public JMenu createFileMenu() {
 		JMenu returnMenu = new JMenu("File");
-		//exit.addActionListener();
+		exit.addActionListener(e -> {
+			System.exit(0);
+		});
 		returnMenu.add(exit);
 		return returnMenu;
 	}
