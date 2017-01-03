@@ -34,7 +34,51 @@ public class Grid {
 		}
 	}
 	
-	
+public int checkWinner() {
+		
+		// Check rows for winner
+		for(int r = 0; r < 3; r++) {
+			if(grid[r][0].value != 0 
+					&& grid[r][0].value == grid[r][1].value 
+					&& grid[r][1].value == grid[r][2].value) {
+				if(mainWindow.xTurn) return 1;
+				return 2;
+			}
+		}
+		
+		// Check columns for winner
+		for(int c = 0; c < 3; c++) {
+			if(grid[0][c].value != 0 
+					&& grid[0][c].value == grid[1][c].value 
+					&& grid[1][c].value == grid[2][c].value ) {
+				if(mainWindow.xTurn) return 1;
+				return 2;
+			}
+		}
+		
+		// Check diagonals
+		if(	(grid[0][0].value != 0 
+				&& grid[0][0].value == grid[1][1].value 
+				&& grid[1][1].value == grid[2][2].value)
+				|| (grid[0][2].value != 0
+				&& grid[0][2].value == grid[1][1].value 
+				&& grid[1][1].value == grid[2][0].value)){
+					if(mainWindow.xTurn) return 1;
+					return 2;
+		}
+		
+		// Check tie
+		// If empty square found return 0, otherwise return 3 signifying tie
+		for(int r = 0; r < 3; r++) {
+			for(int c = 0; c < 3; c++) {
+				if(grid[r][c].value == 0) {
+					return 0;
+				}
+			}
+		}
+		
+		return 3;
+	}
 	
 	
 	
