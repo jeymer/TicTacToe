@@ -17,7 +17,7 @@ public class ColorWindow {
 	public MainWindow mainWindow;
 	public JButton save = new JButton("Save");
 	public JButton cancel = new JButton("Cancel");
-	public 	JFrame frame = new JFrame("Customize Colors");
+	public JFrame frame = new JFrame("Customize Colors");
 
 	JTextField lineR = new JTextField();
 	JTextField lineG = new JTextField();
@@ -31,6 +31,7 @@ public class ColorWindow {
 		frame.setResizable(false);
 
 		JLabel message = new JLabel("Please enter the colors' RGB values below.");
+		message.setHorizontalAlignment(JLabel.CENTER);
 		message.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		frame.add(message, BorderLayout.PAGE_START);
 
@@ -46,12 +47,12 @@ public class ColorWindow {
 		textB.setHorizontalAlignment(JTextField.CENTER);
 
 		// Set textFields' initial text to the current values
-		lineR.setText("" + mainWindow.panel.getBackground().getRed());
-		lineG.setText("" + mainWindow.panel.getBackground().getGreen());
-		lineB.setText("" + mainWindow.panel.getBackground().getBlue());
-		textR.setText("" + mainWindow.grid.getSquare(0, 0).button.getForeground().getRed());
-		textG.setText("" + mainWindow.grid.getSquare(0, 0).button.getForeground().getGreen());
-		textB.setText("" + mainWindow.grid.getSquare(0, 0).button.getForeground().getBlue());
+		lineR.setText("" + mainWindow.options.lineColor.getRed());
+		lineG.setText("" + mainWindow.options.lineColor.getGreen());
+		lineB.setText("" + mainWindow.options.lineColor.getBlue());
+		textR.setText("" + mainWindow.options.textColor.getRed());
+		textG.setText("" + mainWindow.options.textColor.getGreen());
+		textB.setText("" + mainWindow.options.textColor.getBlue());
 
 
 		// Add boxes to set color
@@ -85,7 +86,7 @@ public class ColorWindow {
 		});
 		buttons.add(cancel);
 		save.addActionListener(e -> {
-			save(frame);
+			save();
 		});
 		buttons.add(save);
 		frame.add(buttons, BorderLayout.SOUTH);
@@ -94,7 +95,7 @@ public class ColorWindow {
 		frame.setVisible(true);
 	}
 
-	public void save(JFrame frame) {
+	public void save() {
 		boolean successful = true;
 
 		// Make sure all inputs are numbers, if not then catch the NumberFormatException
@@ -120,7 +121,7 @@ public class ColorWindow {
 				Color line = new Color(Integer.parseInt(this.lineR.getText()), Integer.parseInt(this.lineG.getText()), Integer.parseInt(this.lineB.getText()));
 				Color text = new Color(Integer.parseInt(this.textR.getText()), Integer.parseInt(this.textG.getText()), Integer.parseInt(this.textB.getText()));
 				mainWindow.setColors(line, text);
-				frame.setVisible(false);
+				this.frame.setVisible(false);
 			}
 		}catch(NumberFormatException e) {
 			JOptionPane.showMessageDialog(this.frame, "Please enter valid RGB values", "Error", JOptionPane.ERROR_MESSAGE);
