@@ -7,14 +7,14 @@ public class Customization {
 	// Properties that can be changed include the colors 
 	// and the letters/strings used in the boxes
 	public Color lineColor;
-	public Color squareColor;
+	public Color textColor;
 	public String X;
 	public String O;
 	
 	// Set to initial values
 	public Customization() {
 		this.lineColor = Color.BLACK;
-		this.squareColor = Color.WHITE;
+		this.textColor = Color.BLACK;
 		this.X = "X";
 		this.O = "O";
 	}
