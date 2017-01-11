@@ -36,11 +36,20 @@ public class Grid {
 		}
 	}
 	
-	// Method to change color of the grid squares(buttons)
+	// Method to change color of all grid squares(buttons)
 	public void setColor(Color color) {
 		for(int r = 0; r < 3; r++) {
 			for(int c = 0; c < 3; c++) {
 				this.grid[r][c].button.setForeground(color);
+			}
+		}
+	}
+	
+	// Method to change the text of all grid squares(buttons)
+	public void setText() {
+		for(int r = 0; r < 3; r++) {
+			for(int c = 0; c < 3; c++) {
+				this.grid[r][c].setText();
 			}
 		}
 	}
