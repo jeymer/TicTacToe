@@ -8,7 +8,12 @@ public class MenuBarBuilder {
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem colors = new JMenuItem("Colors");
 	private JMenuItem text = new JMenuItem("Text");
-
+	public MainWindow mainWindow;
+	
+	public MenuBarBuilder(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
+	}
+	
 	public JMenu createFileMenu() {
 		JMenu returnMenu = new JMenu("File");
 		exit.addActionListener(e -> {
@@ -20,9 +25,11 @@ public class MenuBarBuilder {
 	
 	public JMenu createCustomizeMenu() {
 		JMenu returnMenu = new JMenu("Customize");
-		//colors.addActionListener();
+		colors.addActionListener(e -> {
+			new ColorWindow(this.mainWindow);
+		});
 		returnMenu.add(colors);
-		//colors.addActionListener();
+		//text.addActionListener();
 		returnMenu.add(text);
 		return returnMenu;
 	}
