@@ -38,10 +38,17 @@ public class MainWindow {
 		grid.setColor(text);
 	}
 	
+	public void setText(String x, String o) {
+		this.options.X = x;
+		this.options.O = o;
+		grid.setText();
+	}
+	
 	public void createAndShowGUI() {
 		// Set attributes of the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 600);
+		frame.setResizable(false);
 		frame.setJMenuBar(menuBar);
 		panel.setLayout(new GridLayout(3, 3));
 		panel.setBackground(this.options.lineColor);
