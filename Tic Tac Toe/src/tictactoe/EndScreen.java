@@ -31,7 +31,7 @@ public class EndScreen {
 			break;
 		}
 		if(!winner.equals("")) {
-			int choice = JOptionPane.showConfirmDialog(MainWindow.frame, winner, "Congratulations!", JOptionPane.YES_NO_OPTION);
+			int choice = JOptionPane.showConfirmDialog(mainWindow.frame, winner, "Congratulations!", JOptionPane.YES_NO_OPTION);
 			if(choice == JOptionPane.YES_OPTION) {
 				mainWindow.grid.clear();
 				mainWindow.xTurn = false;
