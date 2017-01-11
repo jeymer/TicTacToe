@@ -7,7 +7,7 @@ import javax.swing.JMenuItem;
 public class MenuBarBuilder {
 	private JMenuItem exit = new JMenuItem("Exit");
 	private JMenuItem colors = new JMenuItem("Colors");
-	private JMenuItem text = new JMenuItem("Text");
+	private JMenuItem text = new JMenuItem("Letters");
 	public MainWindow mainWindow;
 	
 	public MenuBarBuilder(MainWindow mainWindow) {
@@ -29,7 +29,9 @@ public class MenuBarBuilder {
 			new ColorWindow(this.mainWindow);
 		});
 		returnMenu.add(colors);
-		//text.addActionListener();
+		text.addActionListener(e -> {
+			new LetterWindow(this.mainWindow);
+		});
 		returnMenu.add(text);
 		return returnMenu;
 	}
