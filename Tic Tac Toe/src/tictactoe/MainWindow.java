@@ -16,26 +16,35 @@ public class MainWindow {
 	public boolean xTurn = true;
 	
 	// Tic Tac Toe Window
-	public static JFrame frame = new JFrame("Tic Tac Toe");
+	public JFrame frame = new JFrame("Tic Tac Toe");
+	
+	// Panel holding grid
+	public JPanel panel = new JPanel();
 	
 	// Grid holding contents of board
 	public Grid grid = new Grid(this);
 	
 	// Create a MenuBarBuilder and use it to build the menu bar
-	public static MenuBarBuilder menuBarBuilder = new MenuBarBuilder();
-	public static JMenuBar menuBar = menuBarBuilder.createMenuBar();
+	public MenuBarBuilder menuBarBuilder = new MenuBarBuilder(this);
+	public JMenuBar menuBar = menuBarBuilder.createMenuBar();
 	
 	// Object used to display end screen
 	public EndScreen endScreen = new EndScreen(this);
+	
+	public void setColors(Color line, Color text) {
+		this.options.lineColor = line;
+		this.options.textColor = text;
+		panel.setBackground(line);
+		grid.setColor(text);
+	}
 	
 	public void createAndShowGUI() {
 		// Set attributes of the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 600);
 		frame.setJMenuBar(menuBar);
-		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
-		panel.setBackground(Color.BLACK);
+		panel.setBackground(this.options.lineColor);
 		panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		
 		// Add "squares" (buttons) to game screen
