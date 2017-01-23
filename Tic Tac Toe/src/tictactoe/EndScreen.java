@@ -8,14 +8,21 @@ import javax.swing.JOptionPane;
 
 public class EndScreen {
 	
-	public static void displayEndScreen() {
+	// Used to access customization options, particularly the X/O strings
+	public MainWindow mainWindow;
+	
+	public EndScreen(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
+	}
+	
+	public void displayEndScreen() {
 		String winner = ""; 
-		switch(MainWindow.checkWinner()) {
+		switch(mainWindow.grid.checkWinner()) {
 		case 1:
-			winner = "Player 1 (" + MainWindow.X + ") wins!\nPlay again?";
+			winner = "Player 1 (" + mainWindow.options.X + ") wins!\nPlay again?";
 			break;
 		case 2:
-			winner = "Player 2 (" + MainWindow.O + ") wins!\nPlay again?";
+			winner = "Player 2 (" + mainWindow.options.O + ") wins!\nPlay again?";
 			break;
 		case 3:
 			winner = "Draw!\nPlay again?";
@@ -24,10 +31,10 @@ public class EndScreen {
 			break;
 		}
 		if(!winner.equals("")) {
-			int choice = JOptionPane.showConfirmDialog(MainWindow.frame, winner, "Congratulations!", JOptionPane.YES_NO_OPTION);
+			int choice = JOptionPane.showConfirmDialog(mainWindow.frame, winner, "Congratulations!", JOptionPane.YES_NO_OPTION);
 			if(choice == JOptionPane.YES_OPTION) {
-				MainWindow.grid.clear();
-				MainWindow.xTurn = false;
+				mainWindow.grid.clear();
+				mainWindow.xTurn = false;
 			}
 			else {
 				System.exit(0);
